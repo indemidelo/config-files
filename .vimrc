@@ -146,3 +146,14 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" set per powerline
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+" Always show statusline
+set laststatus=2
+" " Use 256 colours (Use this setting only if your terminal supports 256
+" colours)
+set t_Co=256
+
+" tasto esc velocissimo
+set timeoutlen=1000 ttimeoutlen=0
