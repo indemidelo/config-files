@@ -30,3 +30,7 @@ R/
 .sudo_as_admin_successful
 .vim/
 .viminfo
+Projects/
+.linuxmint/
+.themes/
+.xsession-errors.old
