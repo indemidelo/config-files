@@ -48,9 +48,12 @@ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
 # sistemare le folder nei file . per configurare powerline
 
+# sistemare fonts powerline
+sudo apt-get install fonts-powerline
 
 # sources
 https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789
 https://github.com/Valloric/YouCompleteMe
 https://github.com/robbyrussell/oh-my-zsh
 https://powerline.readthedocs.io/en/latest/installation/linux.html
+https://github.com/powerline/fonts

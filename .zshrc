@@ -7,8 +7,8 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME='lambda'
+ZSH_THEME='bira'
+#ZSH_THEME='lambda'
 #ZSH_THEME='agnoster'
 
 # Set list of themes to load
@@ -66,7 +66,7 @@ plugins=(
   python
   python2
   pip
-  tmux
+#  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -103,15 +103,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # setting per powerline
-if [[ -r /home/giulio/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-  source /home/giulio/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-fi
+# if [[ -r /home/giulio/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#   source /home/giulio/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+# fi
 
 # 10ms for key sequences (tasto esc veloce)
 KEYTIMEOUT=1
 
-prompt_context() {
-    if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-          # prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-            fi
-          }
+# prompt_context() {
+#     if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+#           # prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+#             fi
+#           }

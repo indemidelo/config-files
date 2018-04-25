@@ -14,10 +14,11 @@ Plugin 'jalvesaq/Nvim-R'
 Plugin 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plugin 'powerline/powerline'
-" Plugin 'roxma/nvim-completion-manager' errore
-" Plugin 'gaalcaras/ncm-R'
+" Plugin 'powerline/powerline' " troppo lenta
 Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -128,7 +129,6 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-set visualbell
 nnoremap U <C-r>
 
 " settings :: Nvim-R plugin
@@ -148,13 +148,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+let g:airline_theme='hybridline'
+
 " set per powerline
-set rtp+=/home/giulio/.local/lib/python3.*/site-packages/powerline/bindings/vim/
-" Always show statusline
-set laststatus=2
-" " Use 256 colours (Use this setting only if your terminal supports 256
-" colours)
-set t_Co=256
+" set rtp+=/home/giulio/.local/lib/python3.*/site-packages/powerline/bindings/vim/
+" " Always show statusline
+" set laststatus=2
+"  Use 256 colours (Use this setting only if your terminal supports 256
+" " colours)
+" set t_Co=256
 
 " tasto esc velocissimo
 set timeoutlen=1000 ttimeoutlen=0
