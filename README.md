@@ -9,8 +9,7 @@ sudo apt install git
 git init
 git clone https://github.com/indemidelo/config-files
 
-mv config-files/.* .
-rm -rf config-files
+mv config-files/ ~
 cd ..
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
