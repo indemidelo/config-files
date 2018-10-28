@@ -47,12 +47,13 @@ pip3 install --upgrade pip
 Potrebbe essere necessario disinstallare pip con ```python3 -m pip uninstall pip```
 ```
 pip3 install --user powerline-status
+mkdir ~/.fonts
+cd ~/.fonts
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
 wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-mkdir .fonts
-mv PowerlineSymbols.otf ~/.fonts/
+mkdir ~/.fonts
 fc-cache -vf ~/.local/share/fonts/
-mkdir -p fontconfig/conf.d
+mkdir -p ~/.config/fontconfig/conf.d
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 ```
 
