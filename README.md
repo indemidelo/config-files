@@ -43,6 +43,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```
 sudo apt-get install python3-pip
 pip3 install --upgrade pip
+```
+Potrebbe essere necessario disinstallare pip con ```python3 -m pip uninstall pip```
+```
 pip3 install --user powerline-status
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
 wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
