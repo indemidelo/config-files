@@ -1,0 +1,225 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+colorscheme molokai
+set autochdir
+"cd C:/Inpeco
+set guifont=Dejavu\ Sans\ Mono:h8
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set number
+match ErrorMsg '\%>79v.\+'
+behave mswin
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Roba inserita da me proveniente da getting home to vim
+filetype off
+"call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+"set modelines = 0
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set noerrorbells
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+" set undofile
+let mapleader = "\<Space>"
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault "per sostituire foo con bar nella riga corrente: :%s/foo/bar/
+set incsearch
+set showmatch
+set hlsearch
+" ,<space> nasconde tutte le espressioni cercate
+nnoremap ,<space> :noh<cr>
+" tab rimappato per andare sempre alla fine della riga
+vnoremap <tab> $
+nnoremap <tab> $
+onoremap <tab> $
+" handling long lines correctly
+set wrap
+"set textwidth = 79
+"set formatoptions = qrn1
+"set colorcolumn=80
+"reselect the text just pasted
+nnoremap <leader>V V`]
+" navigo tra i buffer
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""
+"""MIE MODIFICHE""" 
+"""""""""""""""""""
+
+" 0 rimappato per andare sempre all'inizio del testo scritto
+" e non alla posizione 0 della riga
+nnoremap 0 0w
+
+" spezzo verticalm/orizz e mi sposto
+nnoremap <leader>s <C-w>s<C-w>l
+nnoremap <leader>v <C-w>v<C-w>l
+
+"chiudere finestre con leader 
+nnoremap <leader>h :hide<cr>
+
+"salvare con leader w
+nnoremap <leader>w :w<cr>
+
+" salva con doppia virgola
+nnoremap ,, :w<cr>
+
+" copy & paste to system clipboard with <leader>p and <leader>y
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" iniziare la sessione con una finestra più grande
+"set lines=100 columns=400
+au GUIEnter * simalt ~x
+
+"Redo with U instead of <Ctrl+R>
+noremap U <C-r>
+
+"Remap <F2> to save the script and execute it in python 
+autocmd Filetype python nnoremap <F2> :w<CR> :!python %<CR>
+autocmd Filetype python nnoremap <leader>p :w<CR> :!python %<CR>
+autocmd Filetype python nnoremap ò :w<CR> :!python %<CR>
+autocmd FileType python nnoremap <leader><leader> :w<CR> :!python %<CR>
+
+"Remap <Meta>+P to save the script and execute it in python 
+autocmd Filetype python nnoremap <M-p> :w<CR> :!python %<CR>
+
+" Quickly open/reload myvimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>  
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" Macros for mapping
+"let @s='i"index": "not_analyzed","type": "string"'
+"let @i='i"type": "integer"'
+"let @f='0wwwwi  yypwwi_analyzed$bakbkbkk$xjj0' 
+""comment description in parsing files
+
+" put all swap and backup files in separate folders
+set backupdir=C:\Inpeco\vim\backup
+set directory=C:\Inpeco\vim\swap
+
+" setup for vundle
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=C:\Users\giulio.giorgio\vimfiles\bundle\Vundle.vim\
+call vundle#begin('C:\Users\giulio.giorgio\vimfiles\bundle')
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+
+" Install SimplyFold
+Plugin 'tmhedberg/SimplyFold'
+
+" Stop vim from removing indentation on empty line
+"inoremap <CR> <CR>x<BS>
+"nnoremap o ox<BS> 
+"nnoremap O Ox<BS>
+
+"set path+=**
+
+" colorscheme solarized
+"syntax enable
+"set background=dark
+"colorscheme solarized
+
+" vado direttamente nella cartella ../../simulator/ivt
+nnoremap <leader>\ :e C:\Inpeco\simulator\ivt\workflow_description<cr>10j
+
+"esc adesso si comporta come dovrebbe
+inoremap <esc> <esc>`^
+
+"esc quando mando freccia su o giu
+inoremap <silent> <Up> <ESC>`^<Up>
+inoremap <silent> <Down> <ESC>`^<Down>
+
+"evidenzia quando supero le 80 colonne
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
