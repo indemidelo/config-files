@@ -12,6 +12,7 @@ git clone https://github.com/indemidelo/config-files ~/.dotfiles
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
+ln -sf ~/.dotfiles/.zshrc ~/.ideavimrc
 
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
