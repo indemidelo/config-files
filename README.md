@@ -3,14 +3,12 @@ Configuration files
 
 # fresh install
 ```
+cd ~
 mkdir ~/.dotfiles
-cd .dotfiles
 sudo apt install git
 git init
-git clone https://github.com/indemidelo/config-files
+git clone https://github.com/indemidelo/config-files ~/.dotfiles
 
-mv config-files/ ~
-cd ..
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
@@ -29,8 +27,7 @@ vim +PluginInstall +qall
 
 sudo apt-get install build-essential cmake
 sudo apt-get install python-dev python3-dev
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+python ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 ```
 
 # zsh
