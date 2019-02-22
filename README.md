@@ -69,4 +69,7 @@ https://github.com/robbyrussell/oh-my-zsh
 
 https://powerline.readthedocs.io/en/latest/installation/linux.html
 
+# provare
+https://gist.github.com/Tset-Noitamotua/284a00212aa8a8d23e202c73526f6e9b#file-vimrc
+
 https://github.com/powerline/fonts
