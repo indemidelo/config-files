@@ -140,9 +140,12 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Macros for mapping
-"let @s='i"index": "not_analyzed","type": "string"'
+"let @s='i"index": "not_analyzed",
+"type": "string"'
 "let @i='i"type": "integer"'
-"let @f='0wwwwi  yypwwi_analyzed$bakbkbkk$xjj0' 
+"let @f='0wwwwi
+  yypwwi_analyzed$ba
+kbkbkk$xjj0' 
 ""comment description in parsing files
 
 " put all swap and backup files in separate folders
