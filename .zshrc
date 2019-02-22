@@ -8,6 +8,7 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME='bira'
+#ZSH_THEME='robbyrussell'
 #ZSH_THEME='lambda'
 #ZSH_THEME='agnoster'
 
